@@ -1,23 +1,86 @@
-// Create functions to dynamically create html for each employee
-function createManagerCard () {
-    const managerName = $('<h3 class = "card-title">').text(managerName);
-    const title = $('<h4 class = "card-title">').text("Manager");
-    const managerId = $('<p class = "card-text">').text(managerId);
-    const managerEmail = $('<p class = "card-text">').text(managerEmail);
-    cardBody.append(managerName, title, managerID, managerEmail);
-};
+// Create functions to dynamically create html for each employee entered
+// -----------------------------------------------------------------------
+// Manager HTML 
 
-function createInternCard () {
-    const internName = $('<h3 class = "card-title">').text(internName);
-    const title = $('<h4 class = "card-title">').text("Intern");
-    const internId = $('<p class = "card-text">').text(internId);
-    const internEmail = $('<p class = "card-text">').text(internEmail);
-    const internSchool = $('<p class = "card-text">').text(interSchool);
-};
+const managerCard = (manager) => {
+    const {name, id, email, number, role} = manager
+    const managerHTML = 
+    `<div class = "column">
+        <div class = "card">
+            <div class = "cardContent">
 
-function createEngineerCard () {
-    const engineerName = $('<h3 class = "card-title">').text(engineerName);
-    const title = $('<h4 class = "card-title">').text("Engineer");
-    const engineerId = $('<p class = "card-text">').text(engineerId);
-    const engineerEmail = $('<p class = "card-text">').text(engineerEmail);
-};
+                <div class="cardHeader">
+                    <div class = "cardHeaderContent text-center">
+                        <h4 class = "cardName">${name}</h4>
+                        <p class = "cardRole">${role}</p>
+                    </div>
+                </div>
+
+                <div class="content text-center">
+                    <div class = "column"> ID: ${id} </div>
+                    <div class = "column"> Email: ${email} </div>
+                    <div class = "column"> Office Number: ${number} </div>
+                </div>
+
+            </div>
+        </div>
+    </div>`
+//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+}
+// -----------------------------------------------------------------------
+// Intern HTML 
+
+const internCard = (intern) => {
+    const {name, id, email, school, role} = intern
+    const internHTML = 
+    `<div class = "column">
+        <div class = "card">
+            <div class = "cardContent">
+
+                <div class = "cardHeader">
+                    <div class = cardHeaderContent text-center">
+                        <h4 class = "cardName">${name}</h4>
+                        <p class = "cardRole">${role}</p>
+                    </div>
+                </div>
+
+                <div class="content text-center">
+                    <div class = "column"> ID: ${id} </div>
+                    <div class = "column"> Email: ${email} </div>
+                    <div class = "column"> School: ${school}</div>
+                </div>
+
+            </div>
+        </div>
+    </div>`
+//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+}
+
+// -----------------------------------------------------------------------
+// Engineer HTML 
+
+const engineerCard = (engineer) => {
+    const {name, id, email, school, role} = intern
+    const internHTML = 
+    `<div class = "column">
+        <div class = "card">
+            <div class = "cardContent">
+
+                <div class = "cardHeader">
+                    <div class = cardHeaderContent text-center">
+                        <h4 class = "cardName">${name}</h4>
+                        <p class = "cardRole">${role}</p>
+                    </div>
+                </div>
+
+                <div class="content text-center">
+                    <div class = "column"> ID: ${id} </div>
+                    <div class = "column"> Email: ${email} </div>
+                    <div class = "column"> GitHub Userame: ${gitHub}</div>
+                </div>
+
+            </div>
+        </div>
+    </div>`
+//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+}
