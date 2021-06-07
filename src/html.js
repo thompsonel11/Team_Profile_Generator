@@ -2,8 +2,8 @@
 // -----------------------------------------------------------------------
 // Manager HTML 
 
-const managerCard = (manager) => {
-    const {name, id, email, number, role} = manager
+const managerCard = (Manager) => {
+    const {name, id, email, number, role} = Manager
     const managerHTML = 
     `<div class = "column">
         <div class = "card">
@@ -30,8 +30,8 @@ const managerCard = (manager) => {
 // -----------------------------------------------------------------------
 // Intern HTML 
 
-const internCard = (intern) => {
-    const {name, id, email, school, role} = intern
+const internCard = (Intern) => {
+    const {name, id, email, school, role} = Intern
     const internHTML = 
     `<div class = "column">
         <div class = "card">
@@ -59,8 +59,8 @@ const internCard = (intern) => {
 // -----------------------------------------------------------------------
 // Engineer HTML 
 
-const engineerCard = (engineer) => {
-    const {name, id, email, school, role} = intern
+const engineerCard = (Engineer) => {
+    const {name, id, email, gitHub, role} = Engineer
     const internHTML = 
     `<div class = "column">
         <div class = "card">

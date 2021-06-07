@@ -79,8 +79,8 @@ const internQuestions = [
   },
   {
     type: "input",
-    name: "gitHub",
-    message: "what is the interns school?",
+    name: "school",
+    message: "What is the interns school?",
   },
 ];
 
