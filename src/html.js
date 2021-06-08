@@ -1,11 +1,9 @@
 // Create functions to dynamically create html for each employee entered
 // -----------------------------------------------------------------------
 // Manager HTML 
-
 const managerCard = (Manager) => {
     const {name, id, email, number, role} = Manager
-    const managerHTML = 
-    `<div class = "column">
+    return `<div class = "column">
         <div class = "card">
             <div class = "cardContent">
 
@@ -29,11 +27,9 @@ const managerCard = (Manager) => {
 }
 // -----------------------------------------------------------------------
 // Intern HTML 
-
 const internCard = (Intern) => {
     const {name, id, email, school, role} = Intern
-    const internHTML = 
-    `<div class = "column">
+    return `<div class = "column">
         <div class = "card">
             <div class = "cardContent">
 
@@ -58,11 +54,9 @@ const internCard = (Intern) => {
 
 // -----------------------------------------------------------------------
 // Engineer HTML 
-
 const engineerCard = (Engineer) => {
     const {name, id, email, gitHub, role} = Engineer
-    const internHTML = 
-    `<div class = "column">
+    return `<div class = "column">
         <div class = "card">
             <div class = "cardContent">
 
@@ -81,6 +75,9 @@ const engineerCard = (Engineer) => {
 
             </div>
         </div>
-    </div>`
-//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+    </div>`  
 }
+
+exports.managerCard=managerCard
+exports.engineerCard=engineerCard
+exports.internCard=internCard

@@ -1,10 +1,11 @@
-// Create functions for employee questions
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Manager = require("./lib/Manager.js");
 const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
-
+const managerCard = require("./src/html").managerCard
+const engineerCard = require("./src/html").engineerCard
+const internCard = require("./src/html").internCard
 
 const roleQuestion = [
   {
@@ -84,25 +85,30 @@ const internQuestions = [
   },
 ];
 
+const employeeCards = [];
+
 function init() {
     inquirer.prompt(roleQuestion).then((roleAnswer) => {
       if (roleAnswer.role === "Manager") {
         console.log(roleAnswer.role)
         inquirer.prompt(managerQuestions).then((managerAnswers) => {
-          const Manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
+          const htmlManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
+          employeeCards.push(managerCard(htmlManager));
           initialAddMore ()
         });
        } else if (roleAnswer.role === "Engineer") {
          console.log(roleAnswer.role)
          inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
-          const Engineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.gitHub);
+          const htmlEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.gitHub);
+          employeeCards.push(engineerCard(htmlEngineer));
           initialAddMore ()
         });
        } else if (roleAnswer.role === "Intern") {
          console.log(roleAnswer.role)
          inquirer.prompt(internQuestions).then((internAnswers) => {
-         const Intern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
-         initialAddMore ()
+          const htmlIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school);
+          employeeCards.push(internCard(htmlIntern));
+          initialAddMore ()
         });
     }
 });  
@@ -121,98 +127,36 @@ function initialAddMore () {
             init();
         }
         else {
-            endHTML();
+            buildHtml();
         }
 })}
 
 
-// DYNAMICALLY CREATING CARDS FOR EACH EMPLOYEE, AND END OF HTML + APPEND
 
-const managerCard = (manager) => {
-    const managerHTML = 
-    `<div class = "column">
-        <div class = "card">
-            <div class = "cardContent">
-
-                <div class="cardHeader">
-                    <div class = "cardHeaderContent text-center">
-                        <h4 class = "cardName">${managerAnswers.name}</h4>
-                        <p class = "cardRole">${managerAnswers.role}</p>
-                    </div>
-                </div>
-
-                <div class="content text-center">
-                    <div class = "column"> ID: ${managerAnswers.id} </div>
-                    <div class = "column"> Email: ${managerAnswers.email} </div>
-                    <div class = "column"> Office Number: ${managerAnswers.number} </div>
-                </div>
-
+const buildHtml = () => {
+    const html = `    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team</title>
+    </head>
+    <body>
+        <header class = "myTeam">
+            <div class = "container text-center">
+                <h1>My Team</h1>
             </div>
-        </div>
-    </div>`
-    fs.appendFile('./dist/index.html', managerHTML, (err) => err ? console.log(err) : '')
-}
-
-    const engineerCard = (engineer) => {
-        const engineerHTML = 
-        `<div class = "column">
-            <div class = "card">
-                <div class = "cardContent">
-    
-                    <div class = "cardHeader">
-                        <div class = cardHeaderContent text-center">
-                            <h4 class = "cardName">${engineerAnswers.name}</h4>
-                            <p class = "cardRole">${engineerAnswers.role}</p>
-                        </div>
-                    </div>
-    
-                    <div class="content text-center">
-                        <div class = "column"> ID: ${engineerAnswers.id} </div>
-                        <div class = "column"> Email: ${engineerAnswers.email} </div>
-                        <div class = "column"> GitHub Userame: ${engineerAnswers.gitHub}</div>
-                    </div>
-    
-                </div>
-            </div>
-        </div>`
-    fs.appendFile('./dist/index.html', engineerHTML, (err) => err ? console.log(err) : '')
-}
-
-const internCard = (intern) => {
-    const internHTML = 
-    `<div class = "column">
-        <div class = "card">
-            <div class = "cardContent">
-
-                <div class = "cardHeader">
-                    <div class = cardHeaderContent text-center">
-                        <h4 class = "cardName">${internAnswers.name}</h4>
-                        <p class = "cardRole">${internAnswers.role}</p>
-                    </div>
-                </div>
-
-                <div class="content text-center">
-                    <div class = "column"> ID: ${internAnswers.id} </div>
-                    <div class = "column"> Email: ${internAnswers.email} </div>
-                    <div class = "column"> School: ${internAnswers.school}</div>
-                </div>
-
-            </div>
-        </div>
-    </div>`
-    fs.appendFile('./dist/index.html', internHTML, (err) => err ? console.log(err) : '')
-}
-
-const endHtml = () => {
-    const endHTML = `    
-    </div>
+        </header>
+        <div class=container>
+        ${employeeCards.map(card => (`
+          <div class="row">
+            ${card}
+          </div>
+        `))}
     </body>
     
     </html>`
-    fs.appendFile('./dist/index.html', endHTML, (err) => err ? console.log(err) : '')
+    fs.writeFileSync('./dist/index.html', html, (err) => err ? console.log(err) : '')
 }
-
-managerCard();
-engineerCard();
-internCard();
-endHtml();
