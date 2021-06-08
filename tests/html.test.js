@@ -18,7 +18,7 @@ describe("HTML", () => {
             <div class = "cardContent">
 
                 <div class="cardHeader">
-                    <div class = "cardHeaderContent text-center">
+                    <div class = "cardHeaderContent text-center bg-gradient bg-dark text-white">
                         <h4 class = "cardName">Liz</h4>
                         <p class = "cardRole">Manager</p>
                     </div>
@@ -43,7 +43,7 @@ describe("HTML", () => {
         <div class = "cardContent">
 
             <div class = "cardHeader">
-                <div class = cardHeaderContent text-center">
+                <div class = "cardHeaderContent text-center bg-gradient bg-secondary text-white">
                     <h4 class = "cardName">Liz</h4>
                     <p class = "cardRole">Engineer</p>
                 </div>
@@ -68,7 +68,7 @@ describe("HTML", () => {
         <div class = "cardContent">
 
             <div class = "cardHeader">
-                <div class = cardHeaderContent text-center">
+                <div class = "cardHeaderContent text-center bg-gradient bg-secondary text-white">
                     <h4 class = "cardName">Liz</h4>
                     <p class = "cardRole">Intern</p>
                 </div>

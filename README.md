@@ -45,6 +45,10 @@ https://github.com/thompsonel11/Team_Profile_Generator
 ## Usage
 The link below contains a demo for the Team Profile Generator: 
 
+https://drive.google.com/file/d/1s6MeaveL2fSz72x5QE8zHv3P5L5ERZAc/view?usp=sharing
+
+The HTML file created during this demo can be found in the repo. The file is called `demoIndex.html`. 
+
 ## Questions
 If you have questions about this application please email: thompsonel2011@gmail.com 
 or visit my Github profile: https://github.com/thompsonel11
