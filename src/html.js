@@ -1,5 +1,3 @@
-// Create functions to dynamically create html for each employee entered
-// -----------------------------------------------------------------------
 // Manager HTML 
 const managerCard = (Manager) => {
     const {name, id, email, number, role} = Manager
@@ -22,8 +20,7 @@ const managerCard = (Manager) => {
 
             </div>
         </div>
-    </div>`
-//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+    </div>`  
 }
 // -----------------------------------------------------------------------
 // Intern HTML 
@@ -48,8 +45,7 @@ const internCard = (Intern) => {
 
             </div>
         </div>
-    </div>`
-//  NEED TO FIND A WAY TO APPEND TO index.HTML   
+    </div>` 
 }
 
 // -----------------------------------------------------------------------
