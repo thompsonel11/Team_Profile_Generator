@@ -6,7 +6,7 @@ const managerCard = (Manager) => {
             <div class = "cardContent">
 
                 <div class="cardHeader">
-                    <div class = "cardHeaderContent text-center">
+                    <div class = "cardHeaderContent text-center bg-gradient bg-dark text-white">
                         <h4 class = "cardName">${name}</h4>
                         <p class = "cardRole">${role}</p>
                     </div>
@@ -31,7 +31,7 @@ const internCard = (Intern) => {
             <div class = "cardContent">
 
                 <div class = "cardHeader">
-                    <div class = cardHeaderContent text-center">
+                    <div class = "cardHeaderContent text-center bg-gradient bg-secondary text-white">
                         <h4 class = "cardName">${name}</h4>
                         <p class = "cardRole">${role}</p>
                     </div>
@@ -57,7 +57,7 @@ const engineerCard = (Engineer) => {
             <div class = "cardContent">
 
                 <div class = "cardHeader">
-                    <div class = cardHeaderContent text-center">
+                    <div class = "cardHeaderContent text-center bg-gradient bg-secondary text-white">
                         <h4 class = "cardName">${name}</h4>
                         <p class = "cardRole">${role}</p>
                     </div>
