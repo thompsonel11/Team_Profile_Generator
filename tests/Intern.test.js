@@ -1,7 +1,7 @@
-const intern = require("lib/Intern.js");
+const Intern = require("../lib/Intern");
 
 describe("intern", () => {
-    const intern = new intern('Liz', '12345', 'test@email.com', 'ECU');
+    const intern = new Intern('Liz', '12345', 'test@email.com', 'ECU');
     it("getName = name", () => {
       expect(intern.getName()).toEqual('Liz');
     })

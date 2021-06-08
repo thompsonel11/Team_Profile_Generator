@@ -126,26 +126,7 @@ function initialAddMore () {
 })}
 
 
-// DYNAMICALLY CREATING BEGINNING OF HTML, CARDS FOR EACH EMPLOYEE, AND END OF HTML
-const beginHTML = () => {
-    const HTML = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Team</title>
-    </head>
-    <body>
-        <header class = "myTeam">
-            <div class = "container text-center">
-                <h1>My Team</h1>
-            </div>
-        </header>
-        <div class=container>
-        <div class="row">`
-fs.writeFile("./dist/index.html", HTML, (err) => err ? console.log(err) : '')
-}
+// DYNAMICALLY CREATING CARDS FOR EACH EMPLOYEE, AND END OF HTML + APPEND
 
 const managerCard = (manager) => {
     const managerHTML = 
@@ -155,15 +136,15 @@ const managerCard = (manager) => {
 
                 <div class="cardHeader">
                     <div class = "cardHeaderContent text-center">
-                        <h4 class = "cardName">${name}</h4>
-                        <p class = "cardRole">${role}</p>
+                        <h4 class = "cardName">${managerAnswers.name}</h4>
+                        <p class = "cardRole">${managerAnswers.role}</p>
                     </div>
                 </div>
 
                 <div class="content text-center">
-                    <div class = "column"> ID: ${id} </div>
-                    <div class = "column"> Email: ${email} </div>
-                    <div class = "column"> Office Number: ${number} </div>
+                    <div class = "column"> ID: ${managerAnswers.id} </div>
+                    <div class = "column"> Email: ${managerAnswers.email} </div>
+                    <div class = "column"> Office Number: ${managerAnswers.number} </div>
                 </div>
 
             </div>
@@ -180,15 +161,15 @@ const managerCard = (manager) => {
     
                     <div class = "cardHeader">
                         <div class = cardHeaderContent text-center">
-                            <h4 class = "cardName">${name}</h4>
-                            <p class = "cardRole">${role}</p>
+                            <h4 class = "cardName">${engineerAnswers.name}</h4>
+                            <p class = "cardRole">${engineerAnswers.role}</p>
                         </div>
                     </div>
     
                     <div class="content text-center">
-                        <div class = "column"> ID: ${id} </div>
-                        <div class = "column"> Email: ${email} </div>
-                        <div class = "column"> GitHub Userame: ${gitHub}</div>
+                        <div class = "column"> ID: ${engineerAnswers.id} </div>
+                        <div class = "column"> Email: ${engineerAnswers.email} </div>
+                        <div class = "column"> GitHub Userame: ${engineerAnswers.gitHub}</div>
                     </div>
     
                 </div>
@@ -205,15 +186,15 @@ const internCard = (intern) => {
 
                 <div class = "cardHeader">
                     <div class = cardHeaderContent text-center">
-                        <h4 class = "cardName">${name}</h4>
-                        <p class = "cardRole">${role}</p>
+                        <h4 class = "cardName">${internAnswers.name}</h4>
+                        <p class = "cardRole">${internAnswers.role}</p>
                     </div>
                 </div>
 
                 <div class="content text-center">
-                    <div class = "column"> ID: ${id} </div>
-                    <div class = "column"> Email: ${email} </div>
-                    <div class = "column"> School: ${school}</div>
+                    <div class = "column"> ID: ${internAnswers.id} </div>
+                    <div class = "column"> Email: ${internAnswers.email} </div>
+                    <div class = "column"> School: ${internAnswers.school}</div>
                 </div>
 
             </div>
@@ -231,7 +212,6 @@ const endHtml = () => {
     fs.appendFile('./dist/index.html', endHTML, (err) => err ? console.log(err) : '')
 }
 
-beginHTML();
 managerCard();
 engineerCard();
 internCard();

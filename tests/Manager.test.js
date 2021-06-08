@@ -1,7 +1,7 @@
-const manager = require("lib/Manager.js");
+const Manager = require("../lib/Manager");
 
 describe("manager", () => {
-    const manager = new manager('Liz', '12345', 'test@email.com', '123-456-6789');
+    const manager = new Manager('Liz', '12345', 'test@email.com', '123-456-6789');
     it("getName = name", () => {
       expect(manager.getName()).toEqual('Liz');
     })
@@ -12,6 +12,6 @@ describe("manager", () => {
       expect(manager.getEmail()).toEqual('test@email.com');
     })
     it("getNumber = number", () => {
-      expect(manager.getSchool()).toEqual('123-456-6789');
+      expect(manager.getNumber()).toEqual('123-456-6789');
     })    
   });
