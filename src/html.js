@@ -14,7 +14,7 @@ const managerCard = (Manager) => {
 
                 <div class="content text-center">
                     <div class = "column"> ID: ${id} </div>
-                    <div class = "column"> Email: ${email} </div>
+                    <div class = "column"> Email: <a href="mailto:${email}">${email}</a></div>
                     <div class = "column"> Office Number: ${number} </div>
                 </div>
 
@@ -39,7 +39,7 @@ const internCard = (Intern) => {
 
                 <div class="content text-center">
                     <div class = "column"> ID: ${id} </div>
-                    <div class = "column"> Email: ${email} </div>
+                    <div class = "column"> Email: <a href="mailto:${email}">${email}</a></div>
                     <div class = "column"> School: ${school}</div>
                 </div>
 
@@ -65,8 +65,8 @@ const engineerCard = (Engineer) => {
 
                 <div class="content text-center">
                     <div class = "column"> ID: ${id} </div>
-                    <div class = "column"> Email: ${email} </div>
-                    <div class = "column"> GitHub Userame: ${gitHub}</div>
+                    <div class = "column"> Email: <a href="mailto:${email}">${email}</a></div>
+                    <div class = "column"> GitHub Userame: <a href="https://github.com/${gitHub}" target="_blank">${gitHub}</a></div>
                 </div>
 
             </div>
